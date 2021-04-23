@@ -1,0 +1,87 @@
+<div class="container border" style="border-radius: .3rem;margin-top: 100px;">
+    <div class="row border border-top-0 border-right-0 border-left-0" style="background-color: #e9ecef;height: 62px;">
+        <h3 style="padding-left: 15px;padding-top: 10px;">Angular Reactive Form Validation</h3>
+    </div>
+    <form [formGroup]="reactform">
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select class="form-control" formControlName="title">
+                        <option value="0" selected></option>
+                        <option value="1">Mr</option>
+                        <option value="2">Ms</option>
+                    </select>
+                    <span *ngIf="RegFormCntrls.title.touched && RegFormCntrls.title.errors?.required"
+                    class="text-danger font-small"><small>Title is required</small></span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" formControlName="fname" class="form-control">
+                    <span *ngIf="RegFormCntrls.fname.touched && RegFormCntrls.fname.errors?.required"
+                    class="text-danger font-small"><small>First Name is required</small></span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" formControlName="lname" class="form-control">
+                    <span *ngIf="RegFormCntrls.lname.touched && RegFormCntrls.lname.errors?.required"
+                    class="text-danger font-small"><small>Last Name is required</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control">
+                    <span *ngIf="RegFormCntrls.email.touched && RegFormCntrls.email.errors?.required"
+                    class="text-danger font-small"><small>Email is required</small></span>
+                    <span *ngIf="RegFormCntrls.email.touched && RegFormCntrls.email.errors?.email"
+                    class="text-danger font-small"><small>Invalid Email Address</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="pswd" class="form-control">
+                    <span *ngIf="RegFormCntrls.pswd.touched && RegFormCntrls.pswd.errors?.required"
+                    class="text-danger font-small"><small>Password is required</small></span>
+                    <span *ngIf="RegFormCntrls.pswd.touched && RegFormCntrls.pswd.errors?.minLength"
+                    class="text-danger font-small"><small>Password must be atleast 6 Characters</small></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <input type="password" formControlName="cpswd" class="form-control">
+                    <span *ngIf="RegFormCntrls.cpswd.touched && RegFormCntrls.cpswd.errors?.required"
+                    class="text-danger font-small"><small>Confirm Password is required</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="checkbox" formControlName="titl">&nbsp;
+                    <label for="acceptterms">Accept Terms & Conditions</label><br>
+                    <span *ngIf="RegFormCntrls.titl.touched && RegFormCntrls.titl.errors"
+                    class="text-danger font-small"><small>Please Select Terms & Conditions</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 22px;">
+            <div class="col-md-6" style="text-align: right;">
+                <input type="submit" class="btn btn-primary" value="Register">
+            </div>
+            <div class="col-md-6">
+                <input type="button" class="btn btn-secondary" value="Cancel">
+            </div>
+        </div>
+    </form>
+</div>
